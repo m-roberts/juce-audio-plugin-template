@@ -53,3 +53,4 @@ jobs:
             ./*_artefacts/*
             !./*_artefacts/JuceLibraryCode
             !./*_artefacts/lib*_SharedCode.a
+            !./*_artefacts/Debug
