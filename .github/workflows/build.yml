@@ -37,7 +37,8 @@ jobs:
         if: runner.os == 'Windows'
         uses: microsoft/setup-msbuild@v1.1
 
-      - run: msbuild *.sln
+      # TODO: infer project name from CMakeLists.txt?
+      - run: msbuild AUDIO_PLUGIN_EXAMPLE.sln
         if: runner.os == 'Windows'
 
       - run: make -j4
