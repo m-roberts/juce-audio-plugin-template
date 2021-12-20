@@ -43,7 +43,7 @@ jobs:
       - run: msbuild AUDIO_PLUGIN_EXAMPLE.sln
         if: runner.os == 'Windows'
 
-      - run: make -j4
+      - run: make -j$(nproc)
         if: runner.os != 'Windows'
 
       - name: Upload artifacts
