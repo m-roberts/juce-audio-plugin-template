@@ -30,20 +30,12 @@ jobs:
             libgtk-3-dev \
             libwebkit2gtk-4.0-dev
 
-      # - name: Windows Setup
-      #   if: runner.os == 'Windows'
-      #   run: |
-      #     #
+      - run: cmake .
 
-      # - name: Mac Setup
-      #   if: runner.os == 'macOS'
-      #   run: |
-      #     #
+      - run: dir
+        if: runner.os == 'Windows'
 
-      - name: Build
-        run: |
-          cmake .
-          make -j4
+      - run: make -j4
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
