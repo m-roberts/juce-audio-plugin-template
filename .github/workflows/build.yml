@@ -17,11 +17,12 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y cmake build-essential
+          sudo apt upgrade -y
+          sudo apt install -y cmake libasound2-dev libcurl4-openssl-dev libwebkit2gtk-4.0-37 libgtk-3-dev
           cmake .
           make -j4
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          path: ./AudioPluginExample_artefacts/*
+          path: ./*_artefacts/*
