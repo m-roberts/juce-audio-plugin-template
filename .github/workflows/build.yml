@@ -33,8 +33,11 @@ jobs:
 
       - run: cmake .
 
-      - run: MSBuild *.sln
-       # /nologo /t:ProjectName:Build SolutionFile.sln
+      - name: Add msbuild to PATH
+        if: runner.os == 'Windows'
+        uses: microsoft/setup-msbuild@v1.1
+
+      - run: msbuild *.sln
         if: runner.os == 'Windows'
 
       - run: make -j4
